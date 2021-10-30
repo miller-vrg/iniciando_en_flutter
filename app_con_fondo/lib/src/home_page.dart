@@ -8,6 +8,7 @@ class MyHomePage extends StatelessWidget {
           appBar: AppBar(
             title: Text('App Con fondo'),
             centerTitle: true,
+            leading: Icon(Icons.arrow_back),
           ),
           body: Center(
             child: _cuerpo(),
