@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_plazi/src/description_place.dart';
+import 'package:proyecto_plazi/src/header.dart';
+import 'package:proyecto_plazi/src/review_list.dart';
+import 'package:flutter/services.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -7,18 +11,27 @@ void main() {
 class MyApp extends StatelessWidget {
   
   final int star = 3;
-  final String name = "Duwili Ella" ;
-  final String des = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit," + 
-"sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna" +
-"aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud "+
-"exerci tation ullamcorper.\n\n" +
-"Suscipit commodo consequat. Duis autem "+
-"vel eum iriure dolor in hendrerit in vulputate velit esse "+
-"molestie consequat, vel illum dolore eu feugiat nulla facilisis "+
-"at vero eros et accumsan et iusto odio digniss.";
+  final String name = "Mokey Di Luffy" ;
+  final String des = '' +
+ 'Es el capitán de la tripulación pirata conocida como los Piratas ' + 
+'de Sombrero de Paja, fundada por él mismo para cumplir su sueño de ' +
+'encontrar el One Piece. Es originario del East Blue. Su recompensa' +
+ 'es de1.500.000.000. Forma parte de los llamados '+
+'"La Peor Generación"; piratas cuya infamia es bien conocida por el mundo.\n\n' +
+
+'Su principal motivación en la serie es convertirse en el Rey de '+
+'los Piratas encontrando el One Piece (tesoro dejado en el lugar más  ' +
+'haya de la nada, por el pirata Gol D. Roger), una tarea que continúa ' +
+'sin importar lo que le oponga resistencia, ya que nunca se rinde, sin ' +
+'importar el peligro o el obstáculo que tenga enfrente. Principalmente ' +
+'la serie One Piece se enfoca en las aventuras de Luffy y su tripulación ' +
+'a través del Grand Line. Aunque comúnmente es torpe e imprudente, ' +
+ 'se pone serio cuando alguien se encuentra en peligro, siendo alguien '+
+'de temer, especialmente si es su tripulación, a los que considera su familia.';
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([]); //oculta la barra de navegacion
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -26,98 +39,23 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        
-        appBar: AppBar(
-          
-          title: Text("Hello")
-        ),
-        body: DescriptionPlace(name: name,des: des,start: star),
+       // body:  DescriptionPlace(name: name,des: des,start: star),
+       body: Stack(
+         children: <Widget>[
+           
+           ListView(
+             children: <Widget>[
+               DescriptionPlace( name: name,des: des ),
+               ReviewList()
+             ]
+
+           ),
+          Header()
+         ],
+       ),
+       
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
