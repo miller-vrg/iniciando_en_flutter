@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_plazi/src/floating_action_button_green.dart';
 
 class CardImg extends StatelessWidget{
 
@@ -34,7 +35,13 @@ Widget build(BuildContext context){
     ),
   );
 
-  return card;
+  return Stack(
+    alignment: Alignment(0.7, 1.1),
+    children: <Widget> [
+      card,
+      FloatingActionButtonGren(),
+      ]
+    );
 }
 
 
