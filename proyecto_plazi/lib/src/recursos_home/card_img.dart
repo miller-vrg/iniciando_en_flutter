@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_plazi/src/floating_action_button_green.dart';
+import 'floating_action_button_green.dart';//Class propia
 
 class CardImg extends StatelessWidget{
 
@@ -25,7 +25,7 @@ Widget build(BuildContext context){
        shape: BoxShape.rectangle,
        boxShadow: <BoxShadow>[
        BoxShadow(
-        color: Colors.black87,
+        color: Colors.black54,
         blurRadius: 15.0,
         offset: Offset(0.0,7.0),
 

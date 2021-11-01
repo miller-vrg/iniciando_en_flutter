@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_plazi/src/pages/buscar.dart';
+import 'package:proyecto_plazi/src/pages/home.dart';
+import 'package:proyecto_plazi/src/pages/perfil.dart';
 
-import 'home.dart';
 
 class PlatziTrips extends StatefulWidget {
   @override
@@ -10,17 +12,27 @@ class PlatziTrips extends StatefulWidget {
 }
 
 class _PlatziTrips extends State<PlatziTrips> {
+
+  int posicion = 0;
+  List<Widget> lisBotones = [ Home(),Buscar(),perfil()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        body: lisBotones[posicion],
       bottomNavigationBar: Theme(
+
         data: Theme.of(context).copyWith(
             canvasColor: Colors.white, //pintar fondo
             primaryColor: Colors.purple //Color de iconos
             ),
+            
         child: BottomNavigationBar(
+          onTap:barraNavegacion,  
+            currentIndex: posicion,
           items: [
             BottomNavigationBarItem(
+              
               icon: Icon(Icons.home),
               label: "",
             ),
@@ -35,7 +47,19 @@ class _PlatziTrips extends State<PlatziTrips> {
           ],
         ),
       ),
-      body: Home(),
+      
     );
   }
+
+
+  void barraNavegacion (int index){
+
+    setState((){
+
+      posicion = index;
+    });
+     
+
+  }
+
 }

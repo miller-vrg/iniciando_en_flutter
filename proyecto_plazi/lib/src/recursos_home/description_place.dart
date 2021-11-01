@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_plazi/src/button.dart';
-import 'package:proyecto_plazi/src/review.dart';
-import 'package:proyecto_plazi/src/review_list.dart';
+import 'button.dart';//class propia
 
 class DescriptionPlace extends StatelessWidget {
   String name;
   String des;
-  int start;
 
-  DescriptionPlace({this.name = "", this.des = "", this.start = 0});
+
+  DescriptionPlace({this.name = "", this.des = ""});
 
   @override
   Widget build(BuildContext context) {

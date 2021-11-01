@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:proyecto_plazi/src/review.dart';
+import 'package:proyecto_plazi/src/recursos_home/review.dart';
 
 class ReviewList extends StatelessWidget{
 

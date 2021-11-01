@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto_plazi/src/review_list.dart';
 
-import 'description_place.dart';
-import 'header.dart';
+//---------------------------------------------------------
+//------------------ Class propias ------------------------
+
+import 'package:proyecto_plazi/src/recursos_home/description_place.dart';
+import 'package:proyecto_plazi/src/recursos_home/header.dart';
+import 'package:proyecto_plazi/src/recursos_home/review_list.dart';
+
 
 class Home extends StatelessWidget{
 
@@ -38,7 +42,8 @@ return  Stack(
              ]
 
            ),
-          Header()
+          Header(),
+         
          ],
        );
 }
